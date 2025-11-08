@@ -1,6 +1,8 @@
 import './App.css'
 import Author from './components/Author'
 import BookCard from './components/BookCard'
+import Header from './components/Header'
+import Quotes from './components/Quotes'
 import profileImg from './assets/profile-img.png'
 import pavillonDream from './assets/pavillon-dream.jpg'
 import vandalismYellow from './assets/vandalism-in-yellow.jpg'
@@ -25,21 +27,36 @@ function App() {
 
   return (
     <div className="portfolio">
-      <Author
-        image={profileImg}
-        bio={authorBio}
-      />
-      <div className="books-section">
-        {books.map((book, index) => (
-          <BookCard
-            key={index}
-            title={book.title}
-            cover={book.cover}
-            description={book.description}
-            pdfLink={book.pdfLink}
-          />
-        ))}
-      </div>
+      <Header />
+      <main className="content">
+        <Author
+          image={profileImg}
+          bio={authorBio}
+        />
+        <Quotes />
+        <div className="books-section">
+          <h2>Literary Works</h2>
+          <div className="books-grid">
+            {books.map((book, index) => (
+              <BookCard
+                key={index}
+                title={book.title}
+                cover={book.cover}
+                description={book.description}
+                pdfLink={book.pdfLink}
+              />
+            ))}
+          </div>
+        </div>
+        <footer className="contact-section">
+          <h2>Connect with the Author</h2>
+          <div className="social-links">
+            <a href="#" className="social-link">Twitter</a>
+            <a href="#" className="social-link">Instagram</a>
+            <a href="mailto:contact@samyoserapis.com" className="social-link">Email</a>
+          </div>
+        </footer>
+      </main>
     </div>
   )
 }

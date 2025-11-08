@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
+/* Mystical animations */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
 body {
   background: #0a0a0f;
   color: #c7c7d0;
@@ -64,12 +80,188 @@ body {
   text-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
 }
 
+/* Header styles */
+.mystical-header {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0a0a0f, #1a1a2f);
+}
+
+.stars-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: twinkle 3s infinite alternate;
+}
+
+.header-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.header-content h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  margin: 0;
+  background: linear-gradient(45deg, #e0e0e8, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #c7c7d0;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.rotating-symbol {
+  width: 100px;
+  height: 100px;
+  margin-top: 2rem;
+  animation: rotate 20s linear infinite;
+}
+
+.outer-circle {
+  fill: none;
+  stroke: rgba(138, 43, 226, 0.3);
+  stroke-width: 2;
+}
+
+.triangle {
+  fill: none;
+  stroke: rgba(138, 43, 226, 0.5);
+  stroke-width: 1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.center-point {
+  fill: #8a2be2;
+  animation: twinkle 2s infinite alternate;
+}
+
 /* Books section styles */
 .books-section {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.books-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #e0e0e8, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
   padding: 1rem;
+}
+
+/* Quotes section styles */
+.quotes-section {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: rgba(20, 20, 30, 0.7);
+  margin: 4rem 0;
+}
+
+.quotes-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #e0e0e8, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.quotes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.quote-card {
+  background: rgba(20, 20, 30, 0.7);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.quote-card:hover {
+  transform: translateY(-5px);
+}
+
+.quote-card blockquote {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #e0e0e8;
+}
+
+.quote-card footer {
+  margin-top: 1rem;
+  font-family: 'Cinzel', serif;
+  color: #8a2be2;
+  font-size: 0.9rem;
+}
+
+/* Contact section styles */
+.contact-section {
+  text-align: center;
+  padding: 4rem 1rem;
+  margin-top: 4rem;
+  background: rgba(20, 20, 30, 0.7);
+  border-top: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.contact-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #e0e0e8, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.social-link {
+  color: #e0e0e8;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(138, 43, 226, 0.2);
+  transform: translateY(-2px);
 }
 
 .book-card {
@@ -159,6 +351,23 @@ body {
     gap: 2rem;
   }
 
+  .mystical-header {
+    height: 80vh;
+  }
+
+  .header-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .rotating-symbol {
+    width: 60px;
+    height: 60px;
+  }
+
   .author-section {
     flex-direction: column;
     padding: 1.5rem;
@@ -177,6 +386,14 @@ body {
   }
 
   .books-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .books-section h2 {
+    font-size: 2rem;
+  }
+
+  .books-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 0.5rem;
@@ -184,12 +401,9 @@ body {
 
   .book-card {
     margin: 0 0.5rem;
+    max-width: 100%;
   }
 
-  .book-card {
-    max-width: 320px;
-  }
-  
   .book-cover {
     aspect-ratio: 2/3;
   }
@@ -205,6 +419,42 @@ body {
 
   .book-info p {
     font-size: 1.1rem;
+  }
+
+  .quotes-section {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+  }
+
+  .quotes-section h2 {
+    font-size: 2rem;
+  }
+
+  .quotes-container {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-card {
+    padding: 1.5rem;
+  }
+
+  .quote-card blockquote {
+    font-size: 1.1rem;
+  }
+
+  .contact-section {
+    padding: 2rem 1rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
   }
 
   .pdf-link {
