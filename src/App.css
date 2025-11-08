@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+body {
+  background: #0a0a0f;
+  color: #c7c7d0;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+}
+
+.portfolio::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(70, 30, 120, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(30, 60, 120, 0.15) 0%, transparent 50%);
+  z-index: -1;
+}
+
+/* Author section styles */
+.author-section {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem;
+  background: rgba(20, 20, 30, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.author-image img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+  border: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+.author-bio {
+  flex: 1;
+  text-align: left;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: #e0e0e8;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+/* Books section styles */
+.books-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  padding: 1rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(20, 20, 30, 0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+}
+
+.book-card {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
+  transition: filter 0.5s ease;
+}
+
+.book-card:hover .book-cover {
+  filter: brightness(1) contrast(1.2);
+}
+
+.book-info {
+  padding: 2rem;
+  text-align: left;
+}
+
+.book-info h2 {
+  margin: 0 0 1.5rem 0;
+  color: #e0e0e8;
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+.book-info p {
+  margin: 0 0 2rem 0;
+  color: #c7c7d0;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.pdf-link {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #4a1c8c, #2c1052);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.pdf-link:hover {
+  background: linear-gradient(135deg, #5c2aa6, #3d1670);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .portfolio {
+    gap: 2rem;
+  }
+
+  .author-section {
+    flex-direction: column;
+    padding: 1.5rem;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .author-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .author-bio {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .books-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0.5rem;
+  }
+
+  .book-card {
+    margin: 0 0.5rem;
+  }
+
+  .book-card {
+    max-width: 320px;
+  }
+  
+  .book-cover {
+    aspect-ratio: 2/3;
+  }
+
+  .book-info {
+    padding: 1.5rem;
+  }
+
+  .book-info h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .book-info p {
+    font-size: 1.1rem;
+  }
+
+  .pdf-link {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+  }
+}
