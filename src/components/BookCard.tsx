@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 
 interface BookCardProps {
   title: string;
@@ -8,8 +9,10 @@ interface BookCardProps {
 }
 
 const BookCard: React.FC<BookCardProps> = ({ title, cover, description, pdfLink }) => {
+  const fadeIn = useScrollFadeIn({ threshold: 0.2 });
+
   return (
-    <div className="book-card">
+    <div ref={fadeIn.ref} className={`book-card ${fadeIn.className}`}>
       <img src={cover} alt={`${title} cover`} className="book-cover" />
       <div className="book-info">
         <h2>{title}</h2>
